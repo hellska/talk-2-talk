@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 List of Users in DB
+    ul
+      each user, i in mydb
+        li
+          a(href="mailto:#{user.email}")= user.name

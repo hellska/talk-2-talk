@@ -12,3 +12,7 @@ collections description:
         pwd
         email
         
+
+= Istruzioni per creazione iniziale DB
+use talk2talk
+db.users.insert({ "name" : "Daniele Scarano", "email" : "hellska@gmail.com", "username" : "admin" });
