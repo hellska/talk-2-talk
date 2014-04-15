@@ -1,0 +1,177 @@
+ABSTRACT
+Come detto più volte, io e Daniele stiamo lavorando allo sviluppo di un tool per lo sviluppo delle discussioni. Il post che segue descrive le premesse, il funzionamento, la struttura e la metodologia di implementazione di tale strumento.
+
+
+PREMESSE
+Gli strumenti attualmente in campo permettono lo sviluppo di singoli contributi (blog), la strutturazione esclusivamente sequenziale di discussioni (forum) o la costruzione di alberi concettuali impliciti (wiki). 
+Si vuole costruire uno strumento che permetta lo sviluppo e la navigazione all'interno di discussioni non necessariamente sequenziali, rendendo visibile ed esplicita la rete di collegamenti tra i diversi interventi (albero). 
+La volontà è inoltre quella di strutturare la discussione sfruttando l'intelligenza collettiva della comunità degli utilizzatori, costruendo sistemi di selezione collettiva dei contenuti e anelli di retroazione – e quindi di selezione – dei diversi contributori. Tale selezione dei contributori (agenti) è finalizzata all'attuazione di processi di sintesi e infine di estrazione di valore dalla discussione.
+Nell'ottica di questa indagine sulla e-democracy, uno strumento così strutturato sarebbe a un tempo una risorsa e un campo di prova e verifica delle ipotesi teoriche. Avrebbe cioè anche natura sperimentale.
+Strumenti prossimi a quanto ci si propone di fare esistono (da Mindmeister a Webbrain), ma nessuno sembra possedere l'insieme delle caratteristiche desiderate.
+Al di là della descrizione della struttura profonda dello strumento che segue, va sottolineato come elemento chiave di un sistema come questo sarebbe l'interfaccia grafica, nelle dimensioni della semplicità/chiarezza e della capacità di attrazione. Ciò che si immagina è una struttura ad albero, estremamente semplice a un primo livello, che possa poi essere espansa, articolata o riorganizzata a discrezione dell'utente. La maggior parte delle operazioni sul sistema dovrebbero passare attraverso la manipolazione grafica dell'interfaccia.
+
+FUNZIONAMENTO
+L'utente A scrive un post sulla e-democracy, il primo nel suo genere. Illustra il quadro concettuale che intende usare e lo argomenta. 
+L'utente B legge il post dell'utente A. Ne commenta alcune parti specifiche (indica una mancanza nella bibliografia e contesta una citazione non esatta), poi commenta l'intero post, esprimendo le sue perplessità (si immagina un sistema simile a Medium). L'utente B si rende però conto che deve argomentare la sua critica, e ha bisogno di spazio. Scrive così un post di risposta ad A, in cui propone un quadro concettuale alternativo.
+L'utente A legge la risposta, la trova sensata, e scrive un nuovo post, che integra il suo post originale e la risposta di B.
+A e B continuano così a sviluppare assieme una discussione sulla e-democracy, che con l'andare del tempo si struttura e si articola. Alcuni post sono collegati gli uni agli altri, essendo risposte a post precedenti, o appartenendo alla stessa sotto-categoria. Altri sono semplicemente giustapposti.
+I due utenti sono in grado di visualizzare la struttura della loro discussione in un diagramma ad albero, su cui possono agire. A dire che mano a mano che la discussione si sviluppa, sia A che B possono spostare i singoli post da una categoria all'altra, introdurre nuove categorie, stabilire nuovi collegamenti tra i post o riorganizzarli come meglio credono, sempre agendo sull'albero.
+Ad un certo punto, l'utente C si imbatte nella discussione tra A e B. 
+Osserva l'albero e ne capisce la struttura. È interessato non alla e-democracy tutta, ma solo alla democrazia deliberativa, su cui sta scrivendo un articolo. Riorganizza così il suo albero, enucleando i post di interesse e scartando gli altri. Già che c'è, integra quella parte della discussione con alcuni suoi contributi.
+Nello stesso tempo, anche l'utente D si imbatte nella stessa discussione. D non ha alcun interesse nella discussione, è quello che si definisce un troll. Comincia così a inserire commenti generici e offensivi, e disarticola la discussione per il puro gusto di farlo.
+A e B scelgono di ignorare i contributi di D (a dire che manipolano le proprie strutture ad albero cancellando i contributi di D: operazioni che il sistema registra), ma valutano positivamente quelli di C. Possono farlo, perché l'albero che usano per visualizzare i contributi è dinamico, e può essere impostato in modi diversi.
+La visualizzazione ad albero di cui dispongono offre infatti tre alternative:
+	1.	può essere la risultante del lavoro di un solo utente (solo A, solo B, solo C o solo D);
+	2.	può essere la risultante delle connessioni combinate della comunità (insieme A, B, C e D);
+	3.	può essere la risultante delle connessioni combinate di un qualsiasi sottoinsieme  della comunità (A e B; A, B e C; C e D; ecc.).
+A dire che ogni utente imposta il proprio albero come meglio crede, in piena libertà, e che esiste un albero complessivo che “pesa” i singoli alberi dei singoli utenti e li integra, così da ottenere un albero che è la rappresentazione grafica dell'intelligenza collettiva della comunità (o di un suo sottoinsieme).
+Gli utenti possono inoltre rispondere ai contributi altrui, commentarli, indicare che li trovano rilevanti o, al contrario, che li trovano irrilevanti. Da notare che A e B, essendo attivi nella discussione da tempo, dispongono di un maggiore prestigio rispetto a C e D. A dire che i loro contributi pesano di più nelle visualizzazioni congiunte, così come pesano di più i loro voti, e le visualizzazioni private che usano. 
+Col tempo, C diventa parte attiva della discussione, mentre D viene ignorato. Questo implica che il prestigio di C sale, mentre quello di D diminuisce.
+Accade così che quando E, F, G, H e I entrano nella discussione, l'albero che si trovano di fronte è frutto del lavoro di A, B e C, con una scarsa, se non nulla, influenza dei contributi di D. Ognuno dei nuovi utenti può costruire la propria visualizzazione ed entrare nella discussione come meglio crede, e la comunità è libera di abbracciare i nuovi contributi o rifiutarli. Tanto più la comunità abbraccia nuovi contenuti, tanto più il prestigio dell'autore di quei contributi aumenta, cosicché aumenta la sua influenza sulla visualizzazione complessiva dei contenuti della comunità.
+A un certo punto anche Z entra nella discussione. Z è un ricercatore che ha speso molto tempo sui temi della e-democracy. Ha una visione non convenzionale, poco condivisa, ma molto profonda. La comunità è però ormai strutturata, il prestigio distribuito, cosicché i suoi contributi si perdono. Il sistema prevede però un sistema di randomizzazione occasionale, a dire che in determinate circostanze, per evitare la completa cristallizzazione, attribuisce a un post un peso che non gli spetterebbe, offrendo così alla comunità la possibilità di scoprire i post di Z.
+Passato un certo tempo, la discussione si esaurisce. L'utente A, che ne è rimasto parte attiva fin dall'inizio, propone quindi all'insieme degli utenti di prestigio di procedere alla sintesi della discussione. Propone un gruppo di lavoro e una metodologia, su cui gli utenti di prestigio (quelli che hanno sviluppato post ritenuti validi dalla comunità e hanno lavorato alla strutturazione della discussione con buoni esiti) votano. La comunità sceglie di procedere alla sintesi, che spetterà ad A con il contributo di C e Z. Dopo un certo tempo, i tre offrono il loro lavoro alla comunità, che può accettarlo, integrarlo o rifiutarlo. Se il contributo viene accettato, il prestigio di A, C e Z cresce; se viene rifiutato, o non viene concluso, il prestigio crolla. 
+A questo punto, le conclusioni della discussione possono diventare base per una nuova discussione.
+
+Quello di cui stiamo parlando è quindi uno strumento scalabile per lo sviluppo di discussioni tra un numero N di utenti
+	•	che permette la visualizzazione non solo dei singoli contributi, ma della struttura concettuale in cui tali contributi sono inseriti;
+	•	che permette ai singoli utenti di riorganizzare secondo le proprie preferenze tale struttura concettuale, agendo direttamente sull'albero;
+	•	che offre a ogni utente la possibilità di usare la propria struttura o la struttura concettuale della comunità; quest'ultima è una sorta di media pesata delle strutture concettuali dei singoli utenti;
+	•	che retroagisce sul prestigio degli utenti, attribuendo ai loro contributi una rilevanza direttamente proporzionale alla rilevanza che viene loro assegnata dalla comunità, di modo che i contributi e le scelte degli utenti attivi e interessati acquisiscano peso, mentre i contributi di scarso valore (come definiti dalla comunità) vengano marginalizzati.
+
+In particolare, il sistema prevede un sistema di gestione del prestigio degli utenti modellizzato a partire dalla famosa “brigata del secchio” di Holland. A dire che il prestigio è la moneta di questo sistema, che gli utenti investono in ogni attività che fanno (votare un post o una connessione, stabilire una riorganizzazione, ecc.). Ogni qual volta vi è assonanza tra le loro scelte e quelle della comunità (che trova utile, e quindi utilizza, la loro visualizzazione, che valuta positivamente i loro contributi, ecc.), gli utenti hanno un ritorno. Ogni qual volta la comunità li ignora, l'investimento viene perduto e il prestigio diminuisce.
+Così facendo, nel tempo, il sistema seleziona i contributi di interesse e marginalizza i contributi superflui, mentre seleziona parallelamente anche i contributori, differenziandoli a seconda della loro serietà e dell'importanza dei loro contributi.
+
+Rispetto a wiki, forum e blog, il sistema rende visibili le connessioni, permettendo così  di cogliere a colpo d'occhio la struttura di una discussione, le relazioni concettuali tra le diverse categorie, le diverse sotto-categorie e infine i singoli post. Per un utente è così sempre possibile capire, a colpo d'occhio, quale relazione intercorra tra due post qualsiasi. 
+L'utente può quindi vedere, per esempio, che la discussione E-Democracy è stata suddivisa nelle categorie Teoria dei Giochi, Economia e Complessità. La categoria Complessità è poi a sua volta stata suddivisa in Fisica, Biologia ed Emergenza. E i post all'interno di ogni sotto-categoria (e tra una sotto-categoria e l'altra) sono collegati gli uni agli altri, essendo critiche, o integrazioni, o modifiche. L'utente può però scegliere di visualizzare la struttura non della comunità, ma di un singolo contributore che ritiene particolarmente preparato o può, ancora, agire direttamente sulla struttura, ricreandola da zero come meglio crede. 
+Nel fare questo, implicitamente, sta votando i diversi post e le diverse connessioni, offrendo nel contempo le proprie connessioni, e domani i propri post, alla valutazione della comunità. A dire che nel momento in cui usa lo strumento per sé, contribuisce all'intelligenza collettiva della comunità.
+
+
+STRUTTURA
+I moduli di cui si compone lo strumento sono i seguenti:
+
+Sviluppo post
+Modulo che permette di scrivere, editare e pubblicare un post, assegnandolo a una discussione ed eventualmente a una specifica categoria e sotto-categoria; una volta pubblicato, il post può essere commentato, sia in una singola parte che nel suo insieme (ripreso da Medium).
+
+Creazione discussioni (collegamenti)
+Modulo che permette di collegare i diversi post. Il collegamento ha una prima dimensione binaria (collegamento positivo o collegamento negativo), più un campo di descrizione testuale (“Non trovando sufficientemente esaustiva la trattazione di A sull'intelligenza artificiale, ho deciso di integrarla con...”). 
+
+Valutazione contributi e collegamenti
+Modulo che permette agli utenti di votare (positivamente o negativamente) i post, i commenti,  i collegamenti e le categorizzazioni. Il peso di un post dipenderà anche dai collegamenti in entrata e uscita.
+
+Gestione del prestigio (retroazione)
+Modulo che permette la retroazione sul prestigio degli utenti. L'utente entra nel sistema con una certa quota di prestigio (azioni). Ogni azione che fa nel sistema ha un costo in termini di prestigio (investimento). A seconda della risposta della comunità alle sue azioni, l'utente può quindi avere un ritorno o una perdita, vedendo così il suo prestigio aumentare o diminuire.
+
+Visualizzazione
+Modulo che permette la visualizzazione della struttura della discussione, così come risultante dalle azioni combinate di tutti gli utenti, piuttosto che dalle azioni di un singolo utente, o da combinazioni diversamente definite. Le visualizzazioni combinate tengono conto del peso (voti) dei singoli post, ma anche dei singoli utenti. A dire che se A (prestigio 100) e B (prestigio 10) scrivono ognuno un post lo stesso giorno, il post di A sarà più visibile di quello di B, così come le sue scelte in fase di valutazione peseranno di più nella visualizzazione complessiva.
+
+Azione attraverso l'albero
+Modulo che permette di agire sugli alberi, implementando così una votazione implicita. Laddove un utente rompa un collegamento creato da un autore e ne preferisca un secondo, questa azione esprime un voto negativo sul collegamento originale, offrendo il nuovo collegamento al voto degli altri utenti.
+
+Sintesi
+Modulo che permetterà la chiusura di una discussione e la sua raccolta in un documento di sintesi. Gli utenti di maggior prestigio all'interno di una singola discussione avranno la possibilità di proporre la chiusura della discussione, spendendo buona parte del loro prestigio, e assumendosi in proprio l'onere della sintesi. La comunità potrà votare la proposta che, se approvata, vincolerà il proponente a procedere alla sintesi (pena la perdita del prestigio investito). Laddove la sintesi vada a buon fine (conclusa e approvata dalla comunità), l'utente avrà un notevole ritorno (essendosi dimostrato utile alla comunità).
+
+Alcune note:
+	1.	non tutte le azioni saranno immediatamente permesse agli utenti: alcune possibilità si sbloccheranno al raggiungimento di un certo prestigio;
+	2.	onde assicurare la consistenza del sistema, alcune azioni potenzialmente disgreganti saranno disincentivate: la creazione di nuove categorie, per esempio, avrà un elevato costo in termini di prestigio, così da essere disincentivata a favore dell'adozione di categorie già esistenti;
+	3.	verranno previsti sistemi di confronto tra gli alberi dei singoli utenti, così da poter suggerire all'utente che stia riorganizzando il proprio albero organizzazione isomorfe che potrebbe trovare utili.
+
+
+METODOLOGIA DI IMPLEMENTAZIONE
+Il sistema sarà implementato a step. La prima versione sarà basata su Wordpress, che offre un database, un sistema di inserimento e gestione post, nonché una serie di plug-in che permetteranno di implementare alcune feature con relativa facilità. In prospettiva, però, si vuole arrivare a uno strumento completamente nuovo sviluppato con Ruby.
+Su WP verrà innestato un software per le visualizzazioni (alberi) sviluppato in Processing. 
+Questa prima versione sarà utilizzata per tarare i diversi anelli di retroazione (in particolare il sistema di gestione del prestigio) al fine di trovare il giusto equilibrio, anche attraverso l'utilizzo di simulazioni.
+
+Lo sviluppo sarà sequenziale, con i diversi moduli che verranno creati in sequenza e testati prima di passare al modulo successivo:
+	1.	modulo sviluppo post;
+	2.	modulo creazione discussioni;
+	3.	modulo visualizzazione;
+	4.	modulo azione attraverso l'albero;
+	5.	modulo valutazione contributi e collegamenti;
+	6.	modulo gestione del prestigio;
+	7.	modulo sintesi.
+
+Questa sequenza trova la sua giustificazione nella volontà di mantenere costantemente il focus  sull'esperienza dell'utente finale.
+
+
+MODULI E SVILUPPO
+
+	1.	(preliminare) modulo gestione utenti
+	2.	modulo sviluppo post;
+	3.	modulo creazione discussioni;
+	4.	modulo visualizzazione;
+	5.	modulo azione attraverso l'albero;
+	6.	modulo valutazione contributi e collegamenti;
+	7.	modulo gestione del prestigio;
+	8.	modulo sintesi.
+
+
+Gestione utenti
+Modulo che permette la registrazione degli utenti (mail, nickname, password), dando così accesso al sistema, sia in fase attiva (scrittura) che passiva (consultazione).
+
+Sviluppo post
+Modulo che permette di scrivere, editare e pubblicare un post, assegnandolo a una discussione ed eventualmente a una specifica categoria e sotto-categoria; una volta pubblicato, il post può essere commentato, sia in una singola parte che nel suo insieme (ripreso da Medium).
+
+	•	L'utente può scrivere un post, assegnandolo a una specifica discussione o creando una nuova discussione. L'utente può inserire immagini e dispone degli strumenti standard basilari di formattazione (elenchi puntati, grassetto e corsivo). Font, dimensione e colore carattere e impaginazione sono predefiniti e non modificabili.
+	•	L'utente può salvare una bozza (draft) del documento o procedere direttamente alla sua pubblicazione.
+	•	Ogni  documento dispone di un titolo, di una lista di tag, di un abstract ed eventualmente di una o più categorie.
+	•	Una volta pubblicato, il post può essere commentato da qualsiasi utente. Gli utenti possono inoltre evidenziare parte del testo e commentare solo quella specifica parte. Altri utenti possono rispondere ai commenti (sia complessivi che su singole parti) che vengono quindi nidificati. L'autore originale può modificare in qualsiasi momento il post originale, ma ciò viene segnalato.
+
+
+Creazione discussioni (collegamenti)
+Modulo che permette di collegare i diversi post. Il collegamento ha una prima dimensione binaria (collegamento positivo o collegamento negativo), più un campo di descrizione testuale (“Non trovando sufficientemente esaustiva la trattazione di A sull'intelligenza artificiale, ho deciso di integrarla con...”). 
+
+	•	Ogni utente (non solo gli autori) può creare collegamenti tra post diversi, o cambiare i collegamenti esistenti.
+	•	I collegamenti:
+	•	uniscono il post A al post B;
+	•	definiscono la natura del collegamento (positivo / negativo);
+	•	forniscono una descrizione testuale (abstract) del collegamento.
+
+Visualizzazione
+Modulo che permette la visualizzazione della struttura della discussione, così come risultante dalle azioni combinate di tutti gli utenti, piuttosto che dalle azioni di un singolo utente, o da combinazioni diversamente definite. Le visualizzazioni combinate tengono conto del peso (voti) dei singoli post, ma anche dei singoli utenti. A dire che se A (prestigio 100) e B (prestigio 10) scrivono ognuno un post lo stesso giorno, il post di A sarà più visibile di quello di B, così come le sue scelte in fase di valutazione peseranno di più nella visualizzazione complessiva.
+
+	•	I diversi post appartenenti a una stessa discussione vengono visualizzati in una struttura ad albero, che ne evidenzia i collegamenti. I collegamenti hanno colori diversi a seconda della natura (positiva / negativa) e mostrano il proprio abstract in risposta al roll-over. 
+	•	I collegamenti hanno intensità diverse (gradazioni di colore), a seconda di quanto ritenuti rilevanti dalla comunità (si veda Azione attraverso l'albero, Valutazione contributi e Gestione Prestigio).
+	•	L'utente può muoversi tra diverse visualizzazioni:
+	•	albero risultante dai propri collegamenti;
+	•	albero risultante dalle azioni pesate di tutti i membri della comunità;
+	•	albero di un altro membro della comunità;
+	•	albero combinato tra due o più membri;
+	•	albero relativo alle categorie.
+	•	L'utilizzo dell'albero di un altro utente, o di una combinazioni di altri utenti, equivale a un voto positivo per quei collegamenti (si veda Valutazione contributi e collegamenti).
+
+Azione attraverso l'albero
+Modulo che permette di agire sugli alberi, implementando così una votazione implicita. Laddove un utente rompa un collegamento creato da un autore e ne preferisca un secondo, questa azione esprime un voto negativo sul collegamento originale, offrendo il nuovo collegamento al voto degli altri utenti.
+
+	•	L'utente può agire sull'albero, spezzando i collegamenti tra post, creando nuovi collegamenti, cancellando commenti (totali o parziali), ridefinendo tag, categorie, abstract e titoli e inserendo note personali. Ognuna di queste azioni corrisponde a un voto.
+	•	La maggior parte delle azioni ha effetto negativo sugli elementi esistenti, che devono quindi disporre in partenza di un valore di partenza di default abbastanza alto.
+	•	Gli utenti possono votare esplicitamente ogni singolo elemento, anche in contraddizione con quanto fatto implicitamente (albero).
+
+Valutazione contributi e collegamenti
+Modulo che permette agli utenti di votare (positivamente o negativamente) i post, i commenti,  i collegamenti e le categorizzazioni. Il peso di un post dipenderà anche dai collegamenti in entrata e uscita.
+
+	•	Ogni singolo elemento del sistema può essere votato, sia positivamente che negativamente. Ciò include:
+	•	post;
+	•	commenti (parziali o totali);
+	•	collegamenti;
+	•	categorie;
+	•	abstract;
+	•	titolo;
+	•	tag.
+	•	Ognuno di questi elementi ha un valore di partenza di default, che varia a seconda dei voti ricevuti. 
+
+
+Gestione del prestigio (retroazione)
+Modulo che permette la retroazione sul prestigio degli utenti. L'utente entra nel sistema con una certa quota di prestigio (azioni). Ogni azione che fa nel sistema ha un costo in termini di prestigio (investimento). A seconda della risposta della comunità alle sue azioni, l'utente può quindi avere un ritorno o una perdita, vedendo così il suo prestigio aumentare o diminuire.
+
+	•	A ogni utente che si registra viene assegnata una certa quota di MP (moneta prestigio).
+	•	Ogni azione all'interno del sistema (scrittura post, scrittura commento, creazione categorie, creazione o modifica collegamenti, ecc.) ha un costo in termini di MP e un potenziale ritorno stabilito dal sistema. Così, se un utente scrive il post A, spenderà una certa quota F della sua MP, cosicché MP(2)=MP(1)-F. La stessa cosa avverrà se scriverà un commento, esprimerà un voto o eseguirà una qualsiasi altra azione nel sistema.
+	•	La perdita F delle varie azioni è definita dalla combinazione di diversi parametri (potenziale distruttivo dell'azione, desiderabilità dell'azione, ecc.). 
+	•	La funzione R stabilisce il ritorno che l'utente avrà in caso di valutazione positiva della sua azione da parte della comunità. Così, se un utente valuterà positivamente il post A, si avrà MP(3)=MP(2) + R(F), dove R è la funzione che stabilisce la quota di ritorno dell'investimento iniziale. R dovrà essere tale da provocare dapprima una compensazione della perdita iniziale (F) e solo in seguito alla valutazione positiva da parte di una quota significativa di utenti un ritorno vero e proprio (tale per cui ad un certo punto MP(N) > MP(1)).
+	•	Tanto maggiore sarà la quota di MP a disposizione di un utente, tanto più i contributi di questo utente saranno ritenuti rilevanti dal sistema, pesando di più in fase di visualizzazione rispetto agli altri. Così, se l'utente X, che dispone di MP(X), stabilisce un collegamento tra i post A e B, e l'utente Y, che dispone di MP(Y) > MP(X), rompe quel collegamento, l'azione dell'utente Y sarà ritenuta più rilevante dal sistema. Stabilita in 100 l'opacità standard (OS) di un collegamento, l'azione di X provocherà quindi un aumento di OS, mentre l'azione di Y ne provocherà una diminuzione.  Entrambe queste azioni sull'opacità dipenderanno dalla MP relativa dei due utenti, cosicché:
+	•	DeltaOS (X) = FOS (MP(X)) dove  FOS è la funzione di calcolo della variazione di opacità.
+	•	Si avranno quindi due delta, DeltaOS(X) e DeltaOS(Y). In ragione della differenza di prestigio (MP) tra i due utenti, si avrà ABS(DeltaOS(X))<ABS(DeltaOS(Y)). 
+	•	Così, la variazione positiva generata da X verrà completamente annullata dall'azione di X, di modo che: OS(2)<OS(1). 
+	•	Nello specifico: OS(2)= OS(1) – (DeltaOS(X) + DeltaOS(Y)), che produce il risultato desiderato ricordando che il delta di X sarà positivo e quello di Y negativo. 
+
+Sintesi (in sospeso)
+Modulo che permetterà la chiusura di una discussione e la sua raccolta in un documento di sintesi. Gli utenti di maggior prestigio all'interno di una singola discussione avranno la possibilità di proporre la chiusura della discussione, spendendo buona parte del loro prestigio, e assumendosi in proprio l'onere della sintesi. La comunità potrà votare la proposta che, se approvata, vincolerà il proponente a procedere alla sintesi (pena la perdita del prestigio investito). Laddove la sintesi vada a buon fine (conclusa e approvata dalla comunità), l'utente avrà un notevole ritorno (essendosi dimostrato utile alla comunità).

@@ -1,0 +1,14 @@
+= DB Schema for blog development =
+
+collections list:
+    users
+    posts
+    trees
+    
+collections description:
+    users
+        name
+        nick
+        pwd
+        email
+        
