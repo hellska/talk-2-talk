@@ -3,18 +3,23 @@ extends layout
 block content
   h1= title
   div.regform
-    p login with your username and password
-    form(name="login", action="/newuser", method="post")
+    p Insert the information required
+    form(name="login", action="/register", method="post")
+      strong real name
+      input(type="text", name="name")
+      br
+      strong last name
+      input(type="text", name="lastname")
+      br
+      strong email
+      input(type="text", name="email")
+      br
       strong username
-      input(type="text", name="user")
+      input(type="text", name="username")
       br
       strong password
       input(type="password", name="pass")
       br
-      strong real name
-      input(type="text", name="user")
-      br
-      strong email
-      input(type="text", name="user")
-      br
       input(type="submit", value="register")
+  br
+  a(href='/') HoMe

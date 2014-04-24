@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+
+// to enable debug of queries sent by monk thru the driver
+// export DEBUG="monk:queries"
+
 var debug = require('debug')('application-name');
 var app = require('../app');
 

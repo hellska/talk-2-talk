@@ -4,7 +4,7 @@ block content
   h1= title
   p Welcome to #{title}
   p If you are new to the site please register to start blogging
-  form(name="register", action="/mydb", method="get")
+  form(name="register", action="/register", method="get")
     input(type="submit", value="register")
   div.loginbox
     p login with your username and password
@@ -13,8 +13,11 @@ block content
       input(type="text", name="user")
       br
       strong password
-      input(type="password", name="pass")
+      input(type="password", name="passwd")
       br
       input(type="submit", value="login")
-
-
+  br
+  a(href='/') HoMe
+  hr
+  hi Utilities
+  a(href="/mydb") Elenco Utenti

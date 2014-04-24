@@ -175,3 +175,17 @@ Modulo che permette la retroazione sul prestigio degli utenti. L'utente entra ne
 
 Sintesi (in sospeso)
 Modulo che permetterˆ la chiusura di una discussione e la sua raccolta in un documento di sintesi. Gli utenti di maggior prestigio all'interno di una singola discussione avranno la possibilitˆ di proporre la chiusura della discussione, spendendo buona parte del loro prestigio, e assumendosi in proprio l'onere della sintesi. La comunitˆ potrˆ votare la proposta che, se approvata, vincolerˆ il proponente a procedere alla sintesi (pena la perdita del prestigio investito). Laddove la sintesi vada a buon fine (conclusa e approvata dalla comunitˆ), l'utente avrˆ un notevole ritorno (essendosi dimostrato utile alla comunitˆ).
+
+=== Lista delle funzionalita' sviluppate
+
+Sviluppo del primo modulo preliminare per la gestione degli utenti.
+index
+
+body :
+login 	-> ok redirect to user page
+	-> ko redirect su login retry page
+	
+registrazione	-> ok redirect su new user page
+		-> ko redirect su self con descrizione dell'errore
+		
+amministrazione	-> userlist

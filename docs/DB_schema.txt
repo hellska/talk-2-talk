@@ -7,10 +7,13 @@ collections list:
     
 collections description:
     users
+        [ _id  - automatic by mongoDB ]
         name
-        nick
-        pwd
+        lastname
         email
+        username
+        passwd
+        
         
 
 = Istruzioni per creazione iniziale DB
