@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div.newpostform
+    h1 Insert a New Post
+    form(name="newpost", action="/newpost", method="post")
+      strong Title
+      br
+      input(type="text", name="posttitle")
+      br
+      strong Content
+      br
+      input(type="text", name="postcontent")
+      br
+      input(type="submit", value="newpost")
+    br
+  a(href='/') HoMe

@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  div.loginbox
+    p login with your username and password
+    form(name="login", action="/login", method="post")
+      strong username
+      input(type="text", name="user")
+      br
+      strong password
+      input(type="password", name="passwd")
+      br
+      input(type="submit", value="login")
+  br
+  a(href='/') HoMe

@@ -17,8 +17,30 @@ router.get('/mydb', function(req, res){
   });
 });
 
+/* GET loginRetry page when login info are incorrect */
+router.get('/loginRetry', function(req, res) {
+  res.render('loginRetry', { title: 'Login Page' });
+});
+
+/* Render registration form on button pressure */
 router.get('/register', function(req, res) {
-  res.render('register', { title: 'Registration Form  ' });
+  res.render('register', { title: 'Registration Form' });
+});
+
+// list of newer posts
+router.get('/posts', function(req, res) {
+  console.log('From Index Render');
+  var db = req.db;
+  var postscollection = db.get('posts');
+  postscollection.find({}, {}, function(e, docs){
+    console.log(docs);
+    res.render('posts', { data: docs, title: 'Posts view' });    
+  });
+});
+
+// newpost form
+router.get('/newpost', function(req, res) {
+  res.render('newpost', { title: 'New Post Window' });
 });
 
 // adding new users
@@ -49,6 +71,7 @@ router.post('/register', function(req, res){
   });
 });
 
+/* controllo username and pwd to login */
 router.post('/login', function(req, res){
   var db = req.db;
   
@@ -64,17 +87,36 @@ router.post('/login', function(req, res){
   
   collection.findOne( {'username' : user, 'passwd' : passwd }, function(err, doc) {
     console.log(err);
-    console.log(doc);
     if (doc === null ) {
       console.log("No such a user")
-      res.location("/");
-      res.redirect("/");
+      res.location("loginRetry");
+      res.redirect("loginRetry");
     } else {
-      res.location("mydb");
-      res.redirect("mydb");
+      console.log(doc);
+//      res.location("welcome");
+      res.render('welcome', { welcome: doc });
     }
   });
-  
+});
+
+/* insert a new post in db */
+router.post('/newpost', function(req, res){
+  console.log('write in db ' + req.body.posttitle + ", " + req.body.postcontent);
+
+  var db = req.db;
+  var postscollection = db.get('posts');
+
+  postscollection.insert({
+    "title" : req.body.posttitle,
+    "content" : req.body.postcontent
+    }, function(err, doc){
+      if(err){
+        res.send;
+      } else {
+        res.location("posts");
+        res.redirect("posts");
+      }
+  });
 });
 
 module.exports = router;

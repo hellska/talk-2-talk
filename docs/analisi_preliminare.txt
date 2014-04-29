@@ -189,3 +189,9 @@ registrazione	-> ok redirect su new user page
 		-> ko redirect su self con descrizione dell'errore
 		
 amministrazione	-> userlist
+
+newpost.jade: implementare la lista completa dei campi necessari
+	per il campo catogoria e sottocategoria preparare degli elenchi fissi con cui popolare dei menu a tendina
+	Per questo tipo di dati verra' creata una collection chiamata fixed_data da generare durante l'installazione
+	
+Generale: implementare tutti i controlli di integrita' dei dati (dopo aver terminato il giro completo)
