@@ -195,3 +195,8 @@ newpost.jade: implementare la lista completa dei campi necessari
 	Per questo tipo di dati verra' creata una collection chiamata fixed_data da generare durante l'installazione
 	
 Generale: implementare tutti i controlli di integrita' dei dati (dopo aver terminato il giro completo)
+
+Mon  5 May 2014 15:36:28 CEST tasks and development:
+- Inserimento data di pubblicazione nel post calcolata automaticamente al momento dell'inserimento nel DB
+- Inserimento e verifica password crittografate
+

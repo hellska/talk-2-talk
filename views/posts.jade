@@ -2,5 +2,7 @@ extends layout
 
 block content
   h1 Complete list of post ordered cronologically
-  br
+  each post, i in data
+    li #{post.title} : #{post.content}
+  hr
   a(href='/') HoMe

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt-nodejs');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -51,7 +52,8 @@ router.post('/register', function(req, res){
   var lastname = req.body.lastname;
   var email = req.body.email;
   var username = req.body.username;
-  var passwd = req.body.pass;
+//  var passwd = req.body.pass;
+  var passwd = bcrypt.hashSync(req.body.pass);
   
   var collection = db.get('users');
   
@@ -85,7 +87,7 @@ router.post('/login', function(req, res){
   var query = {};
   query['username'] = user;
   
-  collection.findOne( {'username' : user, 'passwd' : passwd }, function(err, doc) {
+  collection.findOne( {'username' : user }, function(err, doc) {
     console.log(err);
     if (doc === null ) {
       console.log("No such a user")
@@ -93,6 +95,7 @@ router.post('/login', function(req, res){
       res.redirect("loginRetry");
     } else {
       console.log(doc);
+      pwdIsCorrect = bcrypt.compareSync(passwd, doc.passwd)
 //      res.location("welcome");
       res.render('welcome', { welcome: doc });
     }
@@ -105,10 +108,14 @@ router.post('/newpost', function(req, res){
 
   var db = req.db;
   var postscollection = db.get('posts');
+  var now = new Date();
+  var pdate = now.toJSON();
+  console.log(pdate);
 
   postscollection.insert({
     "title" : req.body.posttitle,
-    "content" : req.body.postcontent
+    "content" : req.body.postcontent,
+    "date" : pdate
     }, function(err, doc){
       if(err){
         res.send;
