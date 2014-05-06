@@ -4,6 +4,12 @@ block content
   div.newpostform
     h1 Insert a New Post
     form(name="newpost", action="/newpost", method="post")
+      strong Seleziona una Categoria
+      br
+      select(name="category")
+        each cat, i in cats
+          option(value="#{cat.name}") #{cat.name}
+      br
       strong Title
       br
       input(type="text", name="posttitle")

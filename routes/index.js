@@ -4,7 +4,11 @@ var bcrypt = require('bcrypt-nodejs');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'talk 2 Talk' });
+  if (!req.session.login) {
+    res.render('index', { title: 'talk 2 Talk' });
+  } else {
+    res.render('welcome', { title: 'talk 2 Talk', username: req.session.user });
+  }
 });
 
 /* GET users list. */
@@ -33,7 +37,7 @@ router.get('/posts', function(req, res) {
   console.log('From Index Render');
   var db = req.db;
   var postscollection = db.get('posts');
-  postscollection.find({}, {}, function(e, docs){
+  postscollection.find({ $query: {}, $orderby: { date : -1 }}, {}, function(e, docs){
     console.log(docs);
     res.render('posts', { data: docs, title: 'Posts view' });    
   });
@@ -41,7 +45,11 @@ router.get('/posts', function(req, res) {
 
 // newpost form
 router.get('/newpost', function(req, res) {
-  res.render('newpost', { title: 'New Post Window' });
+  var db = req.db;
+  var categories = db.get('categories');
+  categories.find( {}, {}, function(e, docs){
+    res.render('newpost', { cats: docs, title: 'New Post Window' });
+  })
 });
 
 // adding new users
@@ -97,7 +105,10 @@ router.post('/login', function(req, res){
       console.log(doc);
       pwdIsCorrect = bcrypt.compareSync(passwd, doc.passwd)
 //      res.location("welcome");
-      res.render('welcome', { welcome: doc });
+      req.session.user = user;
+      req.session.login = true;
+      res.location('welcome');
+      res.render('welcome', { username: user });
     }
   });
 });
@@ -111,11 +122,14 @@ router.post('/newpost', function(req, res){
   var now = new Date();
   var pdate = now.toJSON();
   console.log(pdate);
+  console.log(req.session.user);
 
   postscollection.insert({
     "title" : req.body.posttitle,
     "content" : req.body.postcontent,
-    "date" : pdate
+    "date" : pdate,
+    "author" : req.session.user,
+    "category" : req.body.category
     }, function(err, doc){
       if(err){
         res.send;
