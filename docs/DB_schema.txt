@@ -12,8 +12,19 @@ collections description:
         lastname
         email
         username
-        passwd
-        
+        passwd (bcrypt)
+    
+    posts
+        [ _id  - automatic by mongoDB ]
+        title
+        content
+        date
+        author
+        category
+    
+    categories
+        [ _id  - automatic by mongoDB ]
+        name
         
 
 = Istruzioni per creazione iniziale DB

@@ -200,3 +200,8 @@ Mon  5 May 2014 15:36:28 CEST tasks and development:
 - Inserimento data di pubblicazione nel post calcolata automaticamente al momento dell'inserimento nel DB
 - Inserimento e verifica password crittografate
 
+Tue  6 May 2014 15:29:40 CEST tasks and development:
+- Gestione della sessione utente per accedere alle info utili per la creazione dei post (nome utente come autore del post)
+- Ordinamento della lista dei post from newer to older
+- Reindirizzamento alla pagina principale di benvenuto o alla pagina principale di gestione dei post per utente registrato (sulla base dei dati di sessione)
+- Inserimento della categoria per ciascun post, le categorie vengono lette da una collection categories nel db
