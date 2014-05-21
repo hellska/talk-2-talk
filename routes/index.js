@@ -52,6 +52,19 @@ router.get('/newpost', function(req, res) {
   })
 });
 
+// show single post
+router.get('/post/:poid', function(req, res) {
+  var poid = req.params.poid;
+  console.log(poid);
+  var db = req.db;
+  var collection = db.get('posts');
+  
+  collection.findOne({'_id' : poid }, function(e, docs){
+    console.log(docs);
+    res.render('post', { post: docs, title: 'Single Post View'})
+  })
+});
+
 // adding new users
 router.post('/register', function(req, res){
   var db = req.db;

@@ -205,3 +205,11 @@ Tue  6 May 2014 15:29:40 CEST tasks and development:
 - Ordinamento della lista dei post from newer to older
 - Reindirizzamento alla pagina principale di benvenuto o alla pagina principale di gestione dei post per utente registrato (sulla base dei dati di sessione)
 - Inserimento della categoria per ciascun post, le categorie vengono lette da una collection categories nel db
+
+Wed 21 May 2014 10:21:47 CEST
+- Improved css to displau posts table
+- Added author and date on posts view and inserted in a table to improve readability
+- Added link to single post by _id on post.title
+
+#bugs
+?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento

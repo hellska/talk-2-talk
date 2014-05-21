@@ -2,8 +2,24 @@ extends layout
 
 block content
   h1 Complete list of post ordered cronologically
-  each post, i in data
-    li #{post.title} : #{post.content}
+    hr
+    table.posts
+      tr
+        td.posts_header Title
+        td.posts_header Content
+        td.posts_header Author
+        td.posts_header Date published
+      each post, i in data
+        tr
+          td.posts
+            font.posts
+              a(href='/post/#{post._id}') #{post.title}
+          td.posts
+            font.posts #{post.content.substring(0,40)}...
+          td.posts
+            font.posts #{post.author}
+          td.posts
+            font.posts #{post.date}
   hr
   a(href='/newpost') Write a new post
   br

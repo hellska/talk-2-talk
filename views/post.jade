@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Selected Post
+    br
+    #{post._id}
+  hr
+  a(href='/newpost') Write a new post
+  br
+  a(href='/posts') Browse newer posts
+  br
+  a(href='/') HoMe
