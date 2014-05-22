@@ -1,12 +1,27 @@
 extends layout
 
 block content
-  h1 Selected Post
+  table.post
+    tr
+      th
+        h2 #{post.title}
+    tr
+      td(width="50%")
+        font.postauthor Author: #{post.author}
+      td(width="50%")
+        font.postdate Published: #{post.date.trim()}
+    tr
+      td.postcontent(colspan=2)
+        hr
+        font.postcontent #{post.content}
+        hr
+    tr
+      td(colspan=2)
+        font Post ID: #{post._id}
+  div.footer
+    hr
+    a(href='/newpost') Write a new post
     br
-    #{post._id}
-  hr
-  a(href='/newpost') Write a new post
-  br
-  a(href='/posts') Browse newer posts
-  br
-  a(href='/') HoMe
+    a(href='/posts') Browse newer posts
+    br
+    a(href='/') HoMe

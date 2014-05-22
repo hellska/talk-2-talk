@@ -22,3 +22,21 @@ font.posts {
   font-size:12px;
   font-weight: normal;
 }
+font.postauthor {
+/*  float: left; */
+  text-align: left;
+}
+font.postdate {
+/*  float: right; */
+  text-align: right;
+}
+table.post {
+  width:720px;
+  border: solid black;
+  position:relative;
+  top: 50%;
+  left: 5%;
+}
+td.postcontent {
+  background-color: #BDBDBD;
+}

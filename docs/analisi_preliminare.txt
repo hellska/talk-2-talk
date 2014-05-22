@@ -53,7 +53,7 @@ Sviluppo post
 Modulo che permette di scrivere, editare e pubblicare un post, assegnandolo a una discussione ed eventualmente a una specifica categoria e sotto-categoria; una volta pubblicato, il post può essere commentato, sia in una singola parte che nel suo insieme (ripreso da Medium).
 
 Creazione discussioni (collegamenti)
-Modulo che permette di collegare i diversi post. Il collegamento ha una prima dimensione binaria (collegamento positivo o collegamento negativo), più un campo di descrizione testuale (“Non trovando sufficientemente esaustiva la trattazione di A sull'intelligenza artificiale, ho deciso di integrarla con...”). 
+Modulo che permette di collegare i diversi post. Il collegamento ha una prima dimensione binaria (collegamento positivo o collegamento negativo), più un campo di descrizione testuale (“Non trovando sufficientemente esaustiva la trattazione di A sull'intelligenza artificiale, ho deciso di integrarla con...”).
 
 Valutazione contributi e collegamenti
 Modulo che permette agli utenti di votare (positivamente o negativamente) i post, i commenti,  i collegamenti e le categorizzazioni. Il peso di un post dipenderà anche dai collegamenti in entrata e uscita.
@@ -210,6 +210,11 @@ Wed 21 May 2014 10:21:47 CEST
 - Improved css to displau posts table
 - Added author and date on posts view and inserted in a table to improve readability
 - Added link to single post by _id on post.title
+- created post.jade basic view (to improve)
+
+Thu 22 May 2014 15:28:31 CEST
+- implementata visualizzazione di un singolo post
+- modificato form di inserimento di un nuovo post, aggiunta discussione e spostata categoria resa opzionale (default vuota)
 
 #bugs
 ?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento
