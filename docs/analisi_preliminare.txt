@@ -216,5 +216,9 @@ Thu 22 May 2014 15:28:31 CEST
 - implementata visualizzazione di un singolo post
 - modificato form di inserimento di un nuovo post, aggiunta discussione e spostata categoria resa opzionale (default vuota)
 
+Fri 23 May 2014 16:51:27 CEST
+- newpost model modified - addedd javascript function to create a new categori from the drop down menu
+- newpost.jade modified with a call to javascript function that show a popup to insert a new discussion name
+
 #bugs
 ?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento

@@ -48,7 +48,19 @@ router.get('/newpost', function(req, res) {
   var db = req.db;
   var categories = db.get('categories');
   categories.find( {}, {}, function(e, docs){
-    res.render('newpost', { cats: docs, title: 'New Post Window' });
+    res.render('newpost', {
+      cats: docs,
+      title: 'New Post Window',
+      fs: {
+        newDiscussion:function newDiscussion(selopt){
+          if (selopt=='new') {
+            //code
+            window.alert('Create New Discussion!');
+            window.prompt('Create New Discussion!','defaultText');
+          }
+        }
+      }
+      });
   })
 });
 

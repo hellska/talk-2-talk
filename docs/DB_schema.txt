@@ -25,7 +25,12 @@ collections description:
     categories
         [ _id  - automatic by mongoDB ]
         name
-        
+    
+    discussions
+        [ _id  - automatic by mongoDB ]
+        name
+        date
+        author
 
 = Istruzioni per creazione iniziale DB
 use talk2talk

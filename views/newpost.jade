@@ -1,15 +1,21 @@
-extends layout
-
-block content
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script.
+      #{fs.newDiscussion}
+  body
   div.newpostform
     h1 Insert a New Post
     form(name="newpost", action="/newpost", method="post")
       strong Assegna il post ad una discussione esistente
       br
       font Discussion:
-      select(name="discussion")
+      select(name="discussion" onchange="javascript:newDiscussion(this.options[this.selectedIndex].value)")
         each cat, i in cats
           option(value="#{cat.name}") #{cat.name}
+        option(value="new") new
       br
       strong Title
       br
