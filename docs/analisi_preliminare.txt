@@ -220,5 +220,11 @@ Fri 23 May 2014 16:51:27 CEST
 - newpost model modified - addedd javascript function to create a new categori from the drop down menu
 - newpost.jade modified with a call to javascript function that show a popup to insert a new discussion name
 
+Mon 26 May 2014 15:04:19 CEST
+- creato utils.js per contenere le funzioni server side da richiamare via javascript dal client
+- modificato index.js per leggere le funzioni create in utils.js
+- corretto bug sui nuovi post, in caso la sessione non sia attiva si viene reindirizzati alla /
+
 #bugs
 ?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento
+?to do? se la sessione scade i nuovoi post vengono inseriti lo stesso

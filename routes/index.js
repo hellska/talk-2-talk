@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt-nodejs');
+var myfunk = require('../bin/utils.js');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -32,6 +33,10 @@ router.get('/register', function(req, res) {
   res.render('register', { title: 'Registration Form' });
 });
 
+router.get('/newdiscussion', function(req, res) {
+  res.render('newdiscussion', { title: 'New Discussion Form' });
+});
+
 // list of newer posts
 router.get('/posts', function(req, res) {
   console.log('From Index Render');
@@ -45,23 +50,37 @@ router.get('/posts', function(req, res) {
 
 // newpost form
 router.get('/newpost', function(req, res) {
-  var db = req.db;
-  var categories = db.get('categories');
-  categories.find( {}, {}, function(e, docs){
-    res.render('newpost', {
-      cats: docs,
-      title: 'New Post Window',
-      fs: {
-        newDiscussion:function newDiscussion(selopt){
-          if (selopt=='new') {
-            //code
-            window.alert('Create New Discussion!');
-            window.prompt('Create New Discussion!','defaultText');
+  if (!req.session.login) {
+    console.log("login non effettuato!")
+    res.location("/");
+    res.redirect("/");
+  } else {
+    var db = req.db;
+    var categories = db.get('categories');
+    
+    // get the pointer to the mongo db query result
+    // var test = categories.find();
+    // console.log(test);
+    
+    categories.find( {}, {}, function(e, docs){
+      res.render('newpost', {
+        cats: docs,
+        title: 'New Post Window',
+        fs: {
+          newDiscussion:function newDiscussion(selopt){
+            if (selopt=='new') {
+              //code
+              // window.alert('Create New Discussion!');
+              var newdisc = window.prompt('Create New Discussion!','defaultText');
+              if (newdisc!=null) {
+                window.alert(newdisc);
+              }
+            }
           }
         }
-      }
       });
-  })
+    });
+  }
 });
 
 // show single post
@@ -85,7 +104,6 @@ router.post('/register', function(req, res){
   var lastname = req.body.lastname;
   var email = req.body.email;
   var username = req.body.username;
-//  var passwd = req.body.pass;
   var passwd = bcrypt.hashSync(req.body.pass);
   
   var collection = db.get('users');
@@ -164,5 +182,7 @@ router.post('/newpost', function(req, res){
       }
   });
 });
+
+console.log('Show this text trough a function: ' + myfunk.logger('ciao'))
 
 module.exports = router;
