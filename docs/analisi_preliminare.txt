@@ -225,6 +225,13 @@ Mon 26 May 2014 15:04:19 CEST
 - modificato index.js per leggere le funzioni create in utils.js
 - corretto bug sui nuovi post, in caso la sessione non sia attiva si viene reindirizzati alla /
 
+Tue 27 May 2014 15:00:00 CEST
+- creata funzione in index.js per permettere di creare newpost.jade utilizzando valori da diverse collection (rende sincrona un oparazione asincrona)
+- installato modulo npm socket.io per abilitare la comunicazione tra il client ed il server
+- impostato il socket.io in bin/www e creata una funzione per verificare il funzionamento
+- creata funzione di callback da elemento del menu a tendina delle discussioni
+
+
 #bugs
 ?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento
 ?to do? se la sessione scade i nuovoi post vengono inseriti lo stesso

@@ -5,18 +5,29 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script.
       #{fs.newDiscussion}
+    script(src="/socket.io/socket.io.js")
+    script.
+      function spediscidisc(input){
+      var socket = io.connect('http://localhost:3000');
+        socket.on('news', function(data){
+        console.log(data);
+        socket.emit('my event', { my: input});
+      });
+      }
   body
   div.newpostform
     h1 Insert a New Post
     form(name="newpost", action="/newpost", method="post")
-      strong Assegna il post ad una discussione esistente
+      strong Scegli una discussione esistente
+      br
+      strong o creane una nuova selezionando l'opzione new!
       br
       font Discussion:
-      select(name="discussion" onchange="javascript:newDiscussion(this.options[this.selectedIndex].value)")
-        each cat, i in cats
-          option(value="#{cat.name}") #{cat.name}
+      select(name="discussion" onchange="javascript:spediscidisc(this.options[this.selectedIndex].value)")
+        each dis, i in disc
+          option(value="#{dis.name}") #{dis.name}
         option(value="new") new
-      br
+      hr
       strong Title
       br
       input(type="text", name="posttitle")
@@ -24,7 +35,7 @@ html
       strong Content
       br
       input(type="text", name="postcontent")
-      br
+      hr
       font Select a category (optional)
       br
       font Category:
@@ -32,7 +43,7 @@ html
         option(value="")
         each cat, i in cats
           option(value="#{cat.name}") #{cat.name}
-      br
-      input(type="submit", value="newpost")
+      hr
+      input(type="submit", value="Publish")
     br
   a(href='/') HoMe

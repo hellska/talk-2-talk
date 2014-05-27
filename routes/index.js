@@ -48,23 +48,14 @@ router.get('/posts', function(req, res) {
   });
 });
 
-// newpost form
-router.get('/newpost', function(req, res) {
-  if (!req.session.login) {
-    console.log("login non effettuato!")
-    res.location("/");
-    res.redirect("/");
-  } else {
-    var db = req.db;
-    var categories = db.get('categories');
-    
-    // get the pointer to the mongo db query result
-    // var test = categories.find();
-    // console.log(test);
-    
-    categories.find( {}, {}, function(e, docs){
-      res.render('newpost', {
+// funzione per leggere dati da piu' tabelle contemporaneamente richiamata da /newpost
+function getDisc(req, res, docs){
+  var db = req.db;
+  var discussions = db.get('discussions');
+  discussions.find( {}, {}, function(e, disc){
+    res.render('newpost', {
         cats: docs,
+        disc: disc,
         title: 'New Post Window',
         fs: {
           newDiscussion:function newDiscussion(selopt){
@@ -79,6 +70,27 @@ router.get('/newpost', function(req, res) {
           }
         }
       });
+  });      
+};
+
+// newpost form
+router.get('/newpost', function(req, res) {
+  if (!req.session.login) {
+    console.log("login non effettuato!")
+    res.location("/");
+    res.redirect("/");
+  } else {
+    
+    var db = req.db;
+    var categories = db.get('categories');
+    
+    // get the pointer to the mongo db query result
+    // var test = categories.find();
+    // console.log(test);
+    
+    categories.find( {}, {}, function(e, docs){
+      // call the external function
+      getDisc(req, res, docs);
     });
   }
 });
@@ -145,7 +157,7 @@ router.post('/login', function(req, res){
       res.location("loginRetry");
       res.redirect("loginRetry");
     } else {
-      console.log(doc);
+//      console.log(doc);
       pwdIsCorrect = bcrypt.compareSync(passwd, doc.passwd)
 //      res.location("welcome");
       req.session.user = user;
