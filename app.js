@@ -16,9 +16,7 @@ var db = monk('localhost:27017/talk2talk');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var loginRetry = require('./routes/loginRetry');
-// var posts = require('./routes/posts');
-// var newpost = require('./routes/newpost');
-
+var newDiscussion = require('./routes/newDiscussion');
 
 var app = express();
 
@@ -45,8 +43,7 @@ app.use(function(req, res, next){
 app.use('/', routes);
 app.use('/users', users);
 app.use('/loginRetry', loginRetry);
-// app.use('/posts', posts);
-// app.use('/newpost', newpost);
+app.use('/newDiscussion', newDiscussion);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

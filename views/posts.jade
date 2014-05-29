@@ -5,12 +5,15 @@ block content
     hr
     table.posts
       tr
+        td.posts_header Discussion
         td.posts_header Title
         td.posts_header Content
         td.posts_header Author
         td.posts_header Date published
       each post, i in data
         tr
+          td.posts
+            font.posts #{post.discussion}
           td.posts
             font.posts
               a(href='/post/#{post._id}') #{post.title}

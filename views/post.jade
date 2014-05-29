@@ -6,12 +6,14 @@ block content
       th
         h2 #{post.title}
     tr
-      td(width="50%")
+      td(width="33%")
         font.postauthor Author: #{post.author}
-      td(width="50%")
+      td(width="33%")
+        font.postauthor Discussion: #{post.discussion}
+      td(width="33%")
         font.postdate Published: #{post.date.trim()}
     tr
-      td.postcontent(colspan=2)
+      td.postcontent(colspan=3)
         hr
         font.postcontent #{post.content}
         hr

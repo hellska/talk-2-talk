@@ -5,6 +5,17 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script.
       #{fs.newDiscussion}
+    script(src="/socket.io/socket.io.js")
+    script.
+      function spediscidisc(input){
+        var collection = 'discussions';
+        var socket = io.connect('http://localhost:3000');
+        socket.on('news', function(data){
+          var newdiscussion = window.prompt('Feed By Server Data', data.hello);
+          socket.emit('my event', { my: newdiscussion});
+          window.location = "/"; // + data.hello;
+        });
+      }
   body
   div.newpostform
     h1 Insert a New Post
@@ -14,7 +25,7 @@ html
       strong o creane una nuova selezionando l'opzione new!
       br
       font Discussion:
-      select(name="discussion" onchange="javascript:newDiscussion(this.options[this.selectedIndex].value)")
+      select(name="discussion" onchange="javascript:spediscidisc(this.options[this.selectedIndex].value)")
         each dis, i in disc
           option(value="#{dis.name}") #{dis.name}
         option(value="new") new

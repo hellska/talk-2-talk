@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1 Create a new discussion
+  form(name="newDiscussionForm", action="/newDiscussion", method="post")
+    strong Title
+    br
+    input(type="text", name="discName")
+    br
+    hr
+    input(type="submit", value="Create")
+    br
+  a(href='/') HoMe

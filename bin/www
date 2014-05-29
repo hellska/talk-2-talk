@@ -6,17 +6,37 @@
 var debug = require('debug')('application-name');
 var app = require('../app');
 
+var monk = require('monk');
+var db = monk('localhost:27017/talk2talk');
+
+app.use(function(req, res, next){
+    req.db = db;
+    next();
+});
+
 app.set('port', process.env.PORT || 3000);
 
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
 
+function dbConnect(coll) {
+  console.log("socket on server: dbConnect function output " + coll);
+  var collection = db.get('discussions');
+//  console.log(collection);
+  collection.find({}, {}, function(e, dump){
+    console.log(dump.name);
+  })
+}
+
+/* socket.io at the moment is not used
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function(socket){
-  socket.emit('news', {hello: 'world'});
+  socket.emit('news', {hello: 'posts'});
   socket.on('my event', function(clientdata){
-    console.log(clientdata);
+    console.log("socket on server - message received from client " + clientdata.my);
+    dbConnect(clientdata.my);
   })
 });
+*/

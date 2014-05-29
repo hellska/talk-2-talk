@@ -3,6 +3,7 @@ var router = express.Router();
 var bcrypt = require('bcrypt-nodejs');
 var myfunk = require('../bin/utils.js');
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
   if (!req.session.login) {
@@ -23,6 +24,11 @@ router.get('/mydb', function(req, res){
   });
 });
 
+/* GET - create a new discussion redirection */
+router.get('/newDiscussion', function(req, res) {
+  res.render('newDiscussion', { title: 'New Discussion Form' });
+});
+
 /* GET loginRetry page when login info are incorrect */
 router.get('/loginRetry', function(req, res) {
   res.render('loginRetry', { title: 'Login Page' });
@@ -31,10 +37,6 @@ router.get('/loginRetry', function(req, res) {
 /* Render registration form on button pressure */
 router.get('/register', function(req, res) {
   res.render('register', { title: 'Registration Form' });
-});
-
-router.get('/newdiscussion', function(req, res) {
-  res.render('newdiscussion', { title: 'New Discussion Form' });
 });
 
 // list of newer posts
@@ -58,18 +60,18 @@ function getDisc(req, res, docs){
         disc: disc,
         title: 'New Post Window',
         fs: {
-          newDiscussion:function newDiscussion(selopt){
-            if (selopt=='new') {
-              //code
-              // window.alert('Create New Discussion!');
-              var newdisc = window.prompt('Create New Discussion!','defaultText');
-              if (newdisc!=null) {
-                window.alert(newdisc);
-              }
+        newDiscussion:function newDiscussion(selopt){
+          if (selopt=='new') {
+            var r = confirm('Press ok to create new discussion!\n Press cancel to select a value from the list!');
+            if (r == true) {
+              window.location = '/newDiscussion';
+            } else {
+              window.alert('Operation cancelled by user!');
             }
           }
         }
-      });
+      }
+    });
   });      
 };
 
@@ -184,6 +186,7 @@ router.post('/newpost', function(req, res){
     "content" : req.body.postcontent,
     "date" : pdate,
     "author" : req.session.user,
+    "discussion" : req.body.discussion,
     "category" : req.body.category
     }, function(err, doc){
       if(err){
@@ -195,6 +198,30 @@ router.post('/newpost', function(req, res){
   });
 });
 
+/* Inserisco una nuova discussione nel DB */
+router.post('/newDiscussion', function(req, res){
+  // automatic insert of discussion creation date and author
+  var now = new Date();
+  var pdate = now.toJSON();
+  var creator = req.session.user;
+  // insert in db
+  var db = req.db;
+  var discussions = db.get('discussions')
+  discussions.insert({
+    "name" : req.body.discName,
+    "author" : creator,
+    "date" : pdate
+  }, function(err, doc){
+    if(err){
+      res.send;
+    } else {
+      res.location("newpost");
+      res.redirect("newpost");
+    }
+  })
+  
+  
+});
 console.log('Show this text trough a function: ' + myfunk.logger('ciao'))
 
 module.exports = router;

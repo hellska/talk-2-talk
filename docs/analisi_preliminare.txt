@@ -231,7 +231,16 @@ Tue 27 May 2014 15:00:00 CEST
 - impostato il socket.io in bin/www e creata una funzione per verificare il funzionamento
 - creata funzione di callback da elemento del menu a tendina delle discussioni
 
+Wed 28 May 2014 14:04:07 CEST
+- Verifica delle funzionalita' del modulo socket.io (no commit)
+
+Thu 29 May 2014 14:19:42 CEST
+- Creato form per inserimento nuova discussione
+- richiamo del form dall'oggetto select presente nel template newpost.jade alla selezione della voce "new"
+- redirezione alla pagina di creazione del post dopo l'inserimento della nuova discussione
+- inserita gestione del campo discussion per inserimento e visualizzazione dei post
 
 #bugs
-?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento
+SOLVED?to do? se la sessione scade comunque reinoltra verso la pagina di scrittura dei post, correggere questo comportamento
 ?to do? se la sessione scade i nuovoi post vengono inseriti lo stesso
+?to do? inserire funzione di logout - distruzione della sessione
